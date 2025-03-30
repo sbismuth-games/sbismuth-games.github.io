@@ -5,38 +5,118 @@
 
 main {
     margin-left: 100px;
-    margin-right: 200px;
+    margin-right: 150px;
 }
 
 .org-name {
+    display: block;
+    text-decoration: none;
+    user-select: none;
     color: var(--prim);
     font-weight: bolder;
     font-size: 5rem;
     margin-top: 200px;
-    margin-bottom: 100px;
+    margin-bottom: 200px;
     line-height: 80%;
+    text-shadow: 
+        0px 0px 0 var(--prim), 
+        5px 5px 0 #604040, 
+        10px 10px 0px #202020
+    ;
+    transition: 200ms;
+}
+
+.org-name:hover, h2:hover {
+    color: #fff;
+    text-shadow: 
+        5px 5px 0 var(--prim), 
+        10px 10px 0 #604040, 
+        15px 15px 0px #202020
+    ;
+}
+
+.org-name.nav {
+    font-size: 3rem;
+    margin: 50px 0 50px 100px;
+}
+
+.tile-list {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 50px;
 }
 
 .game {
     background-color: var(--bg-l);
-    width: 1000px;
-    padding: 20px 400px 20px 20px;
+    width: 400px;
+    padding: 300px 20px 20px 20px;
+    height: 600px;
     overflow: hidden;
     position: relative;
-    background: linear-gradient(75deg, var(--bg-ll) 60%, transparent 60.1%);
+    margin: 0;
+    z-index: 0;
+
+    transition: 200ms;
+
+    box-shadow:
+        10px 10px #202020
+    ;
+}
+
+.game::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(4deg, var(--bg-ll) 53%, transparent 53.2%);
+    z-index: -1;
+}
+
+.game:hover, .game:focus-within {
+    transform: translate(-5px, -5px);
+    box-shadow:
+        20px 20px #202020
+    ;
 }
 
 h2 {
-    margin: -3px 50px 20px 0;
+    font-size: 3rem;
+    margin: 50px 50px 30px 0;
+    transition: 200ms;
+    user-select: none;
+
+    color: var(--prim);
+    font-weight: bolder;
+    text-shadow: 
+        0px 0px 0 var(--prim), 
+        5px 5px 0 #604040, 
+        10px 10px 0px #202020
+    ;
+}
+
+h4 {
+    font-size: 1.4rem;
+    font-weight: bolder;
     display: inline-block;
-    transform: translateY(3px);
+    margin: 0 10px 10px 0;
+}
+
+.tag {
+    color: var(--txt-d);
 }
 
 .tag, a.btn {
     display: inline-block;
     background-color: var(--bg-lll);
     border-radius: 0;
-    padding: 10px 15px 10px 12px;
+    padding: 5px 10px 5px 6px;
 
     transform: skewX(15deg);
     font-style: italic;
@@ -56,16 +136,20 @@ h2 {
 
 .game .background {
     position: absolute;
-    width: 62%;
-    top: 50%;
-    right: -10%;
-    transform: translateY(-50%);
-    z-index: -1;
+    width: 100%;
+    height: 300px;
+    top: 0;
+    left: 0;
+    z-index: -5;
+    background-size: cover;
+    background-position: center;
+
+    filter: saturate(90%) brightness(80%);
+    transition: 200ms;
 }
 
-.game .background.small {
-    width: 45%;
-    right: -2%;
+.game:hover .background {
+    filter: saturate(100%) brightness(100%);
 }
 
 .pixel-art {
@@ -78,6 +162,10 @@ footer {
     margin-top: 40px;
     padding: 30px;
     background-color: var(--bg-ll);
+}
+
+nav {
+    margin: 0 0 50px 0;
 }
 
 @font-face {
