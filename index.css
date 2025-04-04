@@ -24,9 +24,14 @@ main {
         10px 10px 0px #202020
     ;
     transition: 200ms;
+    text-align: left;
+
+    width: 0;
 }
 
-.org-name:hover, h2:hover {
+.org-name:hover, h2:hover,
+.org-name:focus-within, h2:focus-within {
+    outline: none;
     color: #fff;
     text-shadow: 
         5px 5px 0 var(--prim), 
@@ -75,7 +80,8 @@ main {
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(4deg, var(--bg-ll) 53%, transparent 53.2%);
+    background-image: linear-gradient(4deg, var(--bg-ll) 63%, transparent 63.2%);
+    background-size: 600px 800px;
     z-index: -1;
 }
 
@@ -87,6 +93,7 @@ main {
 }
 
 h2 {
+    width: 0;
     font-size: 3rem;
     margin: 50px 50px 30px 0;
     transition: 200ms;
@@ -148,7 +155,7 @@ h4 {
     transition: 200ms;
 }
 
-.game:hover .background {
+.game:hover .background, .game:focus-within .background {
     filter: saturate(100%) brightness(100%);
 }
 
@@ -174,64 +181,88 @@ nav {
 }
 
 @media screen and (max-width: 1200px) {
+
     main {
         margin: 20px;
     }
 
-    .game {
-        width: calc(100vw - 40px);
-    }
-
-    .org-name {
-        margin-top: 100px;
-    }
-
-    .tag, a.btn {
-        font-size: 0.8rem;
-        padding: 5px 8px 5px 6px;
-    }
-
-    .tag {
-        margin-bottom: 0;
-    }
-
-    .game h2 {
-        font-size: 1.5em;
-        margin-right: 10px;
-        margin-bottom: 0px;
-    }
-
-    .game .descr {
-        font-size: 0.8em;
-        margin: 10px 0;
+    .org-name.nav {
+        margin-left: 20px;
     }
 
 }
 
-@media screen and (max-width: 700px) {
-    .org-name {
-        font-size: 3rem;
+@media screen and (max-width: 900px) {
+
+    main {
+        text-align: center;
+    }
+
+    .tile-list {
+        justify-content: center;
+        gap: 30px;
     }
 
     .game {
-        width: calc(100vw - 40px);
-        padding-right: 20px;
-        padding-top: 200px;
-        background: linear-gradient(5deg, var(--bg-ll) 40%, transparent 80.1%);
+        width: 350px;
+        text-align: left;
     }
 
-    .game .background {
-        position: absolute;
-        width: 150%;
-        top: -2%;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -1;
+    h2 {
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
     }
 
-    .game .background.small {
-        width: 120%;
-        top: -15%;
+    .org-name {
+        font-size: 4rem;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+
+        margin-top: 120px;
+        margin-bottom: 120px;
+    }
+
+    .org-name.nav {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    h2 {
+        margin-top: 20px;
     }
 }
 
+@media screen and (max-width: 780px) {
+
+    .game {
+        width: 400px;
+        height: fit-content;
+    }
+
+}
+
+
+@media screen and (max-width: 450px) {
+
+    .org-name {
+        font-size: 3.3rem;
+    }
+
+}
+
+
+@media screen and (max-height: 900px) {
+
+    .org-name {
+        margin-top: 120px;
+        margin-bottom: 120px;
+    }
+
+    h2 {
+        margin-top: 20px;
+    }
+
+}
