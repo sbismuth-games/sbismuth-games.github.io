@@ -51,8 +51,8 @@ p {
     width: 0;
 }
 
-.org-name:hover, h2:hover,
-.org-name:focus-within, h2:focus-within {
+.org-name:hover,
+.org-name:focus-visible, h2:focus-within {
     outline: none;
     color: #fff;
     text-shadow: 
@@ -138,6 +138,8 @@ h2 {
     padding: 2px 150px 2px 200px;
     display: inline-block;
     margin-left: -200px;
+    margin-right: 20px;
+    transition: 200ms;
 
     flex-shrink: 0;
 
@@ -153,6 +155,10 @@ h2 {
         transparent calc(100% - 22px),
         transparent 100%
     );
+}
+
+h2:hover {
+    transform: translate(15px, 0);
 }
 
 h2 sup {
@@ -264,8 +270,9 @@ nav {
 .h2-container {
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
     justify-content: start;
+    max-width: 1300px;
 }
 
 .side-content {
@@ -303,6 +310,7 @@ nav {
 
     .h2-container {
         flex-direction: column;
+        align-items: start;
     }
 
     .category-descr {
@@ -380,9 +388,21 @@ nav {
         margin-right: auto;
     }
 
+    .h2-container {
+        align-items: center;
+        margin-bottom: 10px;
+    }
 
     h2 {
         margin-top: 20px;
+        margin-left: 0;
+        padding-left: 50px;
+        padding-right: 110px;
+        margin-right: 0;
+    }
+
+    h2:hover {
+        transform: none;
     }
 }
 
